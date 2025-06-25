@@ -13,6 +13,8 @@ Features
 - Saves conversations locally on your computer
 - No database or internet connection needed
 - Simple to use
+- Export/import conversations (JSON/CSV)
+- Conversation statistics and analytics
 
 Installation
 
@@ -64,6 +66,33 @@ append_to_history(session_id, "assistant", response)
 print("AI:", response)
 ```
 
+Export and Import
+
+Export a conversation to JSON or CSV:
+
+```python
+from statecall.memory import export_conversation, import_conversation
+
+# Export to JSON
+export_conversation("my-chat", "conversation.json", "json")
+
+# Export to CSV
+export_conversation("my-chat", "conversation.csv", "csv")
+
+# Import a conversation
+imported_session = import_conversation("conversation.json")
+```
+
+Get conversation statistics:
+
+```python
+from statecall.memory import get_conversation_stats
+
+stats = get_conversation_stats()
+print(f"Total sessions: {stats['total_sessions']}")
+print(f"Total messages: {stats['total_messages']}")
+```
+
 How it works
 
 StateCall saves your conversations in two files on your computer:
@@ -79,6 +108,7 @@ Check the `examples/` folder:
 
 - `custom_llm_openai_example.py` - using OpenAI
 - `groq_chat_example.py` - using Groq
+- `export_import_example.py` - export/import features
 
 To run an example:
 
@@ -88,4 +118,4 @@ python examples/groq_chat_example.py
 
 License
 
-MIT License # StateCall
+MIT License
