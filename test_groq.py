@@ -8,7 +8,7 @@ from statecall.groq_client import GroqClient
 from statecall.memory import append_to_history, get_session_history
 
 # Set your Groq API key
-os.environ["GROQ_API_KEY"] = "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"
+os.environ["GROQ_API_KEY"] = ""
 
 def test_groq_with_memory():
     """Test Groq integration with memory."""
